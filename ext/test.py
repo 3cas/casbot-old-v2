@@ -1,13 +1,13 @@
 from nextcord import *
 from nextcord.ext import commands
 
-from ext.util import *
+import ext.util as u
 
 class Test(commands.Cog):
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
-    @slash_command(guild_ids=mains)  # Making the command and limiting the guilds
+    @slash_command(guild_ids=u.mains)  # Making the command and limiting the guilds
     async def test(self, interaction: Interaction):
         await interaction.response.send_message("Tested")
 
