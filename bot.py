@@ -8,6 +8,8 @@ from ext.owner import *
 from ext.test import *
 from ext.misc import *
 
+TOKEN = os.getenv("TOKEN")
+
 bot = commands.Bot(command_prefix="c!", description="CASbot is a test bot created by CAS, aka >>#0001.", owner_ids=u.owners)
 
 logging.basicConfig(level=logging.INFO)
@@ -31,5 +33,8 @@ async def on_message(message):
 if os.getlogin() == "casga":
     with open("C:\\Users\\casga\\Desktop\\bot-token.txt", "r") as f:
         TOKEN = f.read()
+        
+else:
+    TOKEN = os.getenv("TOKEN")
 
 bot.run(TOKEN)
